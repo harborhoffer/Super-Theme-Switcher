@@ -14,7 +14,7 @@
 			closeonselect: true,
 			buttonheight: 14,
 			cookiename: "jquery-ui-theme",
-			themes: [{title:"Blah blah",name:"Blah",icon: "theme_90_black_tie.png",url:"http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/trontastic/jquery-ui.css"}],
+			themes: [],
 			additionalthemes: [],
 			onopen: null,
 			onclose: null,
