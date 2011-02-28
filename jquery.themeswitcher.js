@@ -201,11 +201,7 @@
     				}
     			},
     			click: function(){
-    				if( !switcherDiv.find(".jquery-ui-switcher-list-hldr").is(":visible") ){
-    					openSwitcher();
-    				}else{
-    					closeSwitcher();
-    				}
+    				(!switcherDiv.find(".jquery-ui-switcher-list-hldr").is(":visible")) ? openSwitcher() : closeSwitcher();
     			}
     		});
     	
@@ -293,8 +289,9 @@
     				mouseleave: function(){
     					listLink.css("background","none");
     				},
-    				click: function(){
+    				click: function(e){
     					updateTheme($(this).data());
+    					e.preventDefault();
     				}
     			})
     			.attr("href","#")
