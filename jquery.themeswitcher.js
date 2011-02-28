@@ -288,7 +288,7 @@
     			})
     			.bind({
     				mouseenter: function(){
-    					listLink.css("background","url('images/menuhoverbg.png') repeat-x 50% 50%");
+    					listLink.css("background","url("+settings.imgpath+"menuhoverbg.png) repeat-x 50% 50%");
     				},
     				mouseleave: function(){
     					listLink.css("background","none");
