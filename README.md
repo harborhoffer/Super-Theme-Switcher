@@ -1,4 +1,4 @@
-Super Theme Switcher is a jQuery plugin based on the original jQuery theme switcher found [here](http://jqueryui.com/docs/Theming/ThemeSwitcher)
+Super Theme Switcher is a jQuery plugin based on the original jQuery theme switcher found here: [http://jqueryui.com/docs/Theming/ThemeSwitcher](http://jqueryui.com/docs/Theming/ThemeSwitcher)
 
 Recently, jQuery disabled hotlinking to image resources in the switcher essentially breaking it for anyone using it. UI theme icons are included in 
 the download. The super theme switcher also includes some other niceities like adding your own custom themes or overriding all of them.
