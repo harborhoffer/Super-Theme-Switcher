@@ -3,7 +3,7 @@ Super Theme Switcher is a jQuery plugin based on the original jQuery theme switc
 Recently, jQuery disabled hotlinking to image resources in the switcher essentially breaking it for anyone using it. UI theme icons are included in 
 the download. The super theme switcher also includes some other niceities like adding your own custom themes or overriding all of them.
 
-#### Here's an example:
+### Example:
     $('#switcher').themeswitcher({
         imgpath: "images/",
     	loadTheme: "dot-luv"
@@ -12,7 +12,7 @@ the download. The super theme switcher also includes some other niceities like a
 But since all parameters are optional you can just use it like this:
     $('#switcher').themeswitcher();
     
-#### Options
+### Options
 The super theme switcher inherits all the settings of the original [theme switcher](http://jqueryui.com/docs/Theming/ThemeSwitcher)
 
 additional settings are:
@@ -29,4 +29,5 @@ Demo located [here](http://dl.dropbox.com/u/188460/themeswitcher/sample.htm).
 
 Contact
 ----
-[Twitter] 
+[Twitter](http://www.twitter.com/davehoff)
+[www.davehoff.com](http://www.davehoff.com) 
