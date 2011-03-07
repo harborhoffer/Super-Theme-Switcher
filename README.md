@@ -27,6 +27,8 @@ additional settings are:
 
 Demo located [here](http://dl.dropbox.com/u/188460/themeswitcher/sample.htm).
 
+This plugin includes the awesome jQquery cookie plugin by Klaus Hartl found [here](https://github.com/carhartl/jquery-cookie)
+
 Contact
 ----
 [Twitter](http://www.twitter.com/davehoff)
