@@ -15,7 +15,7 @@ But since all parameters are optional you can just use it like this:
 ### Options
 The super theme switcher inherits all the settings of the original [theme switcher](http://jqueryui.com/docs/Theming/ThemeSwitcher)
 
-additional settings are:
+Additional settings are:
  
  * **imgPath**: String, path to image directory where theme icons are located
  * **rounded**: Boolean, rounded corners on themeswitcher link and dropdown
