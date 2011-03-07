@@ -17,13 +17,13 @@ The super theme switcher inherits all the settings of the original [theme switch
 
 additional settings are:
  
- * imgPath: String, path to image directory where theme icons are located
- * rounded: Boolean, rounded corners on themeswitcher link and dropdown
- * themes: An array of theme objects that will override the default themes.  
+ * **imgPath**: String, path to image directory where theme icons are located
+ * **rounded**: Boolean, rounded corners on themeswitcher link and dropdown
+ * **themes**: An array of theme objects that will override the default themes.  
  [{title:"My theme",name:"my-theme",icon:"my-icon.png",url:"http://url-to-my-css-file.css"}]
- * additionalthemes: An array of theme objects that will be INCLUDED along with the default themes.  
+ * **additionalThemes**: An array of theme objects that will be INCLUDED along with the default themes.  
  [{title:"My theme",name:"my-theme",icon:"my-icon.png",url:"http://url-to-my-css-file.css"}]
- * jqueryuiversion: String, jQuery UI version of themes (Default themes are linked from Google CDN)
+ * **jqueryUiVersion**: String, jQuery UI version of themes (Default themes are linked from Google CDN)
 
 Demo located [here](http://dl.dropbox.com/u/188460/themeswitcher/sample.htm).
 
