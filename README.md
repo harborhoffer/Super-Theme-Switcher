@@ -33,4 +33,4 @@ Contact
 ----
 [Twitter](http://www.twitter.com/davehoff)
 
-[www.davehoff.com](http://www.davehoff.com) 
+[davehoff.com](http://www.davehoff.com) 
