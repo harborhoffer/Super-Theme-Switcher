@@ -338,7 +338,7 @@
     			.attr("type","text/css")
     			.attr("rel","stylesheet");
     			
-    		( data.url )? style.attr("href",data.url) : style.attr("href","http://ajax.googleapis.com/ajax/libs/jqueryui/"+settings.jqueryuiversion+"/themes/"+data.name+"/jquery-ui.css");
+    		( data.url )? style.attr("href",data.url) : style.attr("href","https://ajax.googleapis.com/ajax/libs/jqueryui/"+settings.jqueryuiversion+"/themes/"+data.name+"/jquery-ui.css");
     		style.appendTo("head");
     		
     		$.cookie(settings.cookiename, data.name);
