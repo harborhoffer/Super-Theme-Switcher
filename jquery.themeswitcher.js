@@ -334,12 +334,26 @@
     		
     		switcherTitle.text(settings.buttonpretext +" "+ data.title);
     		
-    		var style = $("<link/>")
-    			.attr("type","text/css")
-    			.attr("rel","stylesheet");
-    			
-    		( data.url )? style.attr("href",data.url) : style.attr("href","https://ajax.googleapis.com/ajax/libs/jqueryui/"+settings.jqueryuiversion+"/themes/"+data.name+"/jquery-ui.css");
-    		style.appendTo("head");
+   			
+		var currentStyle = [];
+		var url = data.url;
+
+		if (!url) {
+			var urlPrefix = "https://ajax.googleapis.com/ajax/libs/jqueryui/"+settings.jqueryuiversion+"/themes/";
+			url = urlPrefix+data.name+"/jquery-ui.css";
+			currentStyle = $('link[@rel^=style][href^="'+urlPrefix+'"]').first();
+		}
+
+		if (currentStyle.length) {
+			currentStyle[0].href = url;
+		} else {
+			var style = $("<link/>")
+				.attr("type","text/css")
+				.attr("rel","stylesheet")
+				.attr("href", link);
+	 
+			style.appendTo("head");
+		}
     		
     		$.cookie(settings.cookiename, data.name);
     		switcherDiv.find(".jquery-ui-switcher-title").text(settings.buttonpretext + " " + data.title);
