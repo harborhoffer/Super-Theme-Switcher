@@ -350,7 +350,7 @@
 			var style = $("<link/>")
 				.attr("type","text/css")
 				.attr("rel","stylesheet")
-				.attr("href", link);
+				.attr("href", url);
 	 
 			style.appendTo("head");
 		}
