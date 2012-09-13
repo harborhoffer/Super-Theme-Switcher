@@ -343,7 +343,7 @@
 		if (!url) {
 			var urlPrefix = "https://ajax.googleapis.com/ajax/libs/jqueryui/"+settings.jqueryuiversion+"/themes/";
 			url = urlPrefix+data.name+"/jquery-ui.css";
-			currentStyle = $('link[@rel^=style][href^="'+urlPrefix+'"]').first();
+			currentStyle = $('link[\@rel^=style][href^="'+urlPrefix+'"]').first();
 		}
 
 		if (currentStyle.length) {
