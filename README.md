@@ -1,7 +1,4 @@
-Super Theme Switcher is a jQuery plugin based on the original jQuery theme switcher found here: [http://jqueryui.com/docs/Theming/ThemeSwitcher](http://jqueryui.com/docs/Theming/ThemeSwitcher)
-
-Recently, jQuery disabled hotlinking to image resources in the switcher essentially breaking it for anyone using it. UI theme icons are included in 
-the download. The super theme switcher also includes some other niceities like adding your own custom themes or overriding all of them.
+Super Theme Switcher is a jQuery plugin based on the original jQuery theme switcher that is no longer hosted or supported by the jQuery UI project.
 
 ### Example:
     $('#switcher').themeswitcher({
@@ -13,9 +10,6 @@ But since all parameters are optional you can just use it like this:
     $('#switcher').themeswitcher();
     
 ### Options
-The super theme switcher inherits all the settings of the original [theme switcher](http://jqueryui.com/docs/Theming/ThemeSwitcher)
-
-Additional settings are:
  
  * **imgPath**: String, path to image directory where theme icons are located
  * **rounded**: Boolean, rounded corners on themeswitcher link and dropdown
@@ -31,6 +25,4 @@ This plugin includes the awesome jQuery cookie plugin by Klaus Hartl found [here
 
 Contact
 ----
-[Twitter](http://www.twitter.com/davehoff)
-
-[davehoff.com](http://www.davehoff.com) 
+[@davehoff](http://www.twitter.com/davehoff)
