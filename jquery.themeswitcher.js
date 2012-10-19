@@ -18,6 +18,7 @@
 			width: 175,
 			rounded: true,
 			imgpath: "",
+			themepath: "https://ajax.googleapis.com/ajax/libs/jqueryui/",
 			jqueryuiversion: "1.8.10",
 			initialtext: "Switch Theme",
 			buttonpretext: "Theme:",
@@ -341,9 +342,9 @@
 		var url = data.url;
 
 		if (!url) {
-			var urlPrefix = "https://ajax.googleapis.com/ajax/libs/jqueryui/"+settings.jqueryuiversion+"/themes/";
-			url = urlPrefix+data.name+"/jquery-ui.css";
-			currentStyle = $('link[href^="'+urlPrefix+'"]').first();
+		    var urlPrefix = settings.themepath + settings.jqueryuiversion + "/themes/";
+		    url = urlPrefix + data.name + "/jquery-ui.css";
+		    currentStyle = $('link[href^="' + urlPrefix + '"]').first();
 		}
 
 		if (currentStyle.length) {
