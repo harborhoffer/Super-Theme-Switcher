@@ -105,6 +105,11 @@
     				name: "mint-choc",
     				icon: "theme_90_mint_choco.png"
     			},
+				{
+					 title: "No Theme",
+					 name: "base",
+					 icon: "theme_90_base.png"
+				},
     			{
     				title: "Overcast",
     				name: "overcast",
@@ -171,7 +176,12 @@
     	}
     	
     	if( settings.additionalthemes.length ){
-    		$.extend( themes, settings.additionalthemes );
+    		themes = themes.concat(settings.additionalthemes);
+
+			themes.sort(function(themeA, themeB)
+							{
+								return (themeA.title < themeB.title) ? -1 : 1;
+							});
     	}
     	
     	// Switcher link
@@ -230,11 +240,12 @@
     		.appendTo(switcherLink);
     		
     	// load the default theme or the theme stored in the cookie
-    	if( $.cookie(settings.cookiename) ){
-    		updateTheme( findTheme($.cookie(settings.cookiename)) );
-    		
-    	}else if( settings.loadtheme.length ){
+		if( settings.loadtheme.length ){
     		updateTheme( findTheme(settings.loadtheme) );
+
+    	}
+    	else if( $.cookie(settings.cookiename) ){
+    		updateTheme( findTheme($.cookie(settings.cookiename)) );
     		
     	}else{
     		switcherTitle.text(settings.initialtext);
@@ -340,12 +351,14 @@
    			
 		var currentStyle = [];
 		var url = data.url;
+		var tagId = 'jquery-super-theme-switcher-id';
 
 		if (!url) {
-		    var urlPrefix = settings.themepath + settings.jqueryuiversion + "/themes/";
-		    url = urlPrefix + data.name + "/jquery-ui.css";
-		    currentStyle = $('link[href^="' + urlPrefix + '"]').first();
+			var urlPrefix = settings.themepath + settings.jqueryuiversion + "/themes/";
+		   url = urlPrefix + data.name + "/jquery-ui.css";
 		}
+
+		currentStyle = $('#' + tagId);
 
 		if (currentStyle.length) {
 			currentStyle[0].href = url;
@@ -353,7 +366,8 @@
 			var style = $("<link/>")
 				.attr("type","text/css")
 				.attr("rel","stylesheet")
-				.attr("href", url);
+				.attr("href", url)
+				.attr("id", tagId);
 	 
 			style.appendTo("head");
 		}

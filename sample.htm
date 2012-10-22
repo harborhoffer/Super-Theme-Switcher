@@ -10,7 +10,13 @@
     	$(document).ready(function(){
     		$("#switcher").themeswitcher({
     			imgpath: "images/",
-    			loadTheme: "dot-luv"
+    			loadTheme: "dot-luv",
+				additionalthemes: [{
+											title: "No Style",
+											name: "empty",
+											icon: "theme_90_no_css.png",
+											url : "empty.css"
+									  }]
     		});
     		
     		// Sample UI widgets
