@@ -20,7 +20,7 @@ But since all parameters are optional you can just use it like this:
  * **jqueryUiVersion**: String, jQuery UI version of themes (Default themes are linked from Google CDN)
  * **themePath**: String, Base path to where the jQuery UI CSS themes are located (Default is Google CDN)
 
-Demo located [here](http://dl.dropbox.com/u/188460/themeswitcher/sample.htm).
+Demo located [here](http://preview3.visisoft.de/theme-switcher/sample.htm).
 
 This plugin includes the awesome jQuery cookie plugin by Klaus Hartl found [here](https://github.com/carhartl/jquery-cookie)
 
