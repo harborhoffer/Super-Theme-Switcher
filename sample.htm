@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Theme Switcher</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="jquery.themeswitcher.js"></script>
-    <script type="text/javascript">
+	<title>Theme Switcher</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="jquery.themeswitcher.js"></script>
+	<script type="text/javascript" src="jqueryUiDownloadTheme.js"></script>
+   <script type="text/javascript">
     	$(document).ready(function(){
     		$("#switcher").themeswitcher({
     			imgpath: "images/",
-    			loadTheme: "dot-luv"
+    			loadTheme: "dot-luv",
+				additionalthemes: [{
+											title: "No Style",
+											name: "empty",
+											icon: "theme_90_no_css.png",
+											url : "empty.css"
+									  }],
+				 onselect : updateThemeDownload
     		});
     		
     		// Sample UI widgets
@@ -18,7 +26,32 @@
 				value: 37
 			});
 			$( "#slider" ).slider();
+			$('#themeRollerLink').button();
     	});
+
+		function updateThemeDownload(themeName, url)
+		{
+			console.log(themeName + " url:" + url);
+
+			var value = jqueryUiDownloadThemeParameterForThemName[themeName];
+			var themerollerUrl = "http://jqueryui.com/themeroller/?";
+
+			if (value)
+			{
+				$('#themeParameter').val(value);
+				$('#themeParameter ~ input[type=submit]').prop("disabled", false);
+
+				$('#themeRollerLink').attr('href', themerollerUrl + value);
+				$('#themeRollerLink').prop("disabled", false);
+			}
+			else
+			{
+				$('#themeParameter').val("none");
+				$('#themeParameter ~ input[type=submit]').prop("disabled", true);
+
+				$('#themeRollerLink').prop("disabled", true);
+			}
+		}
     </script>
 </head>
 
@@ -38,6 +71,52 @@
     <p>
     	<div id="slider"></div>
     </p>
-        
+
+	<!-- See http://jqueryui.com/download/ for version 1.9.0 -->
+	<form action="http://download.jqueryui.com/download" method="POST">
+		<input type="hidden" name="theme" id="themeParameter" value="none"/>
+		<input type="hidden" name="scope" value="" />
+		<input type="hidden" name="theme-folder-name" value="custom-theme"/>
+		<input type="hidden" name="core" value="on"/>
+		<input type="hidden" name="widget" value="on"/>
+		<input type="hidden" name="mouse" value="on"/>
+		<input type="hidden" name="position" value="on"/>
+		<input type="hidden" name="draggable" value="on"/>
+		<input type="hidden" name="droppable" value="on"/>
+		<input type="hidden" name="resizable" value="on"/>
+		<input type="hidden" name="selectable" value="on"/>
+		<input type="hidden" name="sortable" value="on"/>
+		<input type="hidden" name="accordion" value="on"/>
+		<input type="hidden" name="autocomplete" value="on"/>
+		<input type="hidden" name="button" value="on"/>
+		<input type="hidden" name="datepicker" value="on"/>
+		<input type="hidden" name="dialog" value="on"/>
+		<input type="hidden" name="menu" value="on"/>
+		<input type="hidden" name="progressbar" value="on"/>
+		<input type="hidden" name="slider" value="on"/>
+		<input type="hidden" name="spinner" value="on"/>
+		<input type="hidden" name="tabs" value="on"/>
+		<input type="hidden" name="tooltip" value="on"/>
+		<input type="hidden" name="effect" value="on"/>
+		<input type="hidden" name="effect-blind" value="on"/>
+		<input type="hidden" name="effect-bounce" value="on"/>
+		<input type="hidden" name="effect-clip" value="on"/>
+		<input type="hidden" name="effect-drop" value="on"/>
+		<input type="hidden" name="effect-explode" value="on"/>
+		<input type="hidden" name="effect-fade" value="on"/>
+		<input type="hidden" name="effect-fold" value="on"/>
+		<input type="hidden" name="effect-highlight" value="on"/>
+		<input type="hidden" name="effect-pulsate" value="on"/>
+		<input type="hidden" name="effect-scale" value="on"/>
+		<input type="hidden" name="effect-shake" value="on"/>
+		<input type="hidden" name="effect-slide" value="on"/>
+		<input type="hidden" name="effect-transfer" value="on"/>
+		<input type="submit" value="Download Theme" />
+	</form>
+
+	<!--<form target="themeEditor" action="http://jqueryui.com/themeroller/?base=" id="themerollerForm" method="GET">-->
+		<!--<input type="submit" value="Modify this theme"/>-->
+	<!--</form>-->
+	<a href="http://jqueryui.com/themeroller/?base=" id="themeRollerLink" target="_blank">Modify this theme</a>
 </body>
 </html>
