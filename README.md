@@ -23,7 +23,7 @@ But since all parameters are optional you can just use it like this:
 
 ### Extras
 
-http://preview3.visisoft.de/theme-switcher/themeroller.png
+<img src="http://preview3.visisoft.de/theme-switcher/themeroller.png">
 
  * **Download Link**: Using the `onselect` callback the Demo shows how to assemble the download link to the themed jQueryUI zip archive.
  * **Link to ThemeRoller**: In the same way a link to the ThemeRoller App is generated where the selected theme can be edited and downloaded.
