@@ -42,9 +42,11 @@
 	    	
 			$.extend( settings, switcherOptions );
     	}
+
+		var themes;
     	
-    	if( ! settings.themes.length ){
-    		var themes = [
+    	if( ! settings.themes.length){
+    		themes = [
     			{
     				title: "Black Tie",
     				name: "black-tie",
@@ -105,11 +107,6 @@
     				name: "mint-choc",
     				icon: "theme_90_mint_choco.png"
     			},
-				{
-					 title: "No Theme",
-					 name: "base",
-					 icon: "theme_90_base.png"
-				},
     			{
     				title: "Overcast",
     				name: "overcast",
@@ -172,7 +169,7 @@
     			}
     		]
     	}else{
-    		var themes = settings.themes;
+    		themes = settings.themes;
     	}
     	
     	if( settings.additionalthemes.length ){
@@ -343,34 +340,39 @@
     	});
     	
     	function updateTheme(data){
-    		if( settings.onselect !== null )
-    			settings.onselect();
-    		
     		switcherTitle.text(settings.buttonpretext +" "+ data.title);
-    		
-   			
-		var currentStyle = [];
-		var url = data.url;
-		var tagId = 'jquery-super-theme-switcher-id';
 
-		if (!url) {
-			var urlPrefix = settings.themepath + settings.jqueryuiversion + "/themes/";
-		   url = urlPrefix + data.name + "/jquery-ui.css";
-		}
+			var url = data.url;
 
-		currentStyle = $('#' + tagId);
+			var tagId = 'jquery-super-theme-switcher-id';
 
-		if (currentStyle.length) {
-			currentStyle[0].href = url;
-		} else {
-			var style = $("<link/>")
-				.attr("type","text/css")
-				.attr("rel","stylesheet")
-				.attr("href", url)
-				.attr("id", tagId);
-	 
-			style.appendTo("head");
-		}
+			if (!url)
+			{
+				var urlPrefix = settings.themepath + settings.jqueryuiversion + "/themes/";
+		   	url = urlPrefix + data.name + "/jquery-ui.css";
+			}
+
+			var currentStyle = $('#' + tagId);
+
+			if (currentStyle.length)
+			{
+				currentStyle[0].href = url;
+			}
+			else
+			{
+				var style = $("<link/>")
+					.attr("type","text/css")
+					.attr("rel","stylesheet")
+					.attr("href", url)
+					.attr("id", tagId);
+
+				style.appendTo("head");
+			}
+
+			if( settings.onselect !== null )
+			{
+    			settings.onselect(data.name, url);
+			}
     		
     		$.cookie(settings.cookiename, data.name, 
                 { expires: settings.cookieexpires, path: settings.cookiepath }

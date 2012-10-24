@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="file://$PROJECT_DIR$/jquery.themeswitcher.js" libraries="{jQuery-1.7.2}" />
+    <file url="file://$PROJECT_DIR$/sample.htm" libraries="{jQuery UI-1.8.17, jQuery-1.7.2}" />
+    <file url="PROJECT" libraries="{jQuery UI-1.8.17, jQuery-1.7.2}" />
+  </component>
+</project>
+
