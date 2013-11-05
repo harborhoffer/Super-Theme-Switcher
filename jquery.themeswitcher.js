@@ -24,6 +24,7 @@
 			buttonpretext: "Theme:",
 			closeonselect: true,
 			buttonheight: 14,
+			storage: "cookie", // local, session
 			cookiename: "jquery-ui-theme",
 			themes: [],
 			additionalthemes: [],
@@ -229,9 +230,11 @@
     		})
     		.appendTo(switcherLink);
     		
-    	// load the default theme or the theme stored in the cookie
-    	if( $.cookie(settings.cookiename) ){
-    		updateTheme( findTheme($.cookie(settings.cookiename)) );
+    	// load the default theme or the theme stored in the local
+    	// storage, in the session storage or in the cookie
+    	var lastTheme = getStoredTheme();
+    	if( lastTheme ){
+    		updateTheme( findTheme(lastTheme) );
     		
     	}else if( settings.loadtheme.length ){
     		updateTheme( findTheme(settings.loadtheme) );
@@ -331,6 +334,35 @@
     			.appendTo(listLink);
     	});
     	
+        function getStoredTheme() {
+          var storage;
+          if (settings.storage === "local")
+            storage = localStorage;
+          else if (settings.storage === "session")
+            storage = sessionStorage;
+          if (storage) {
+            var value = storage.getItem(settings.cookiename);
+            value = value && JSON.parse(value);
+            return value && value.name;
+          } else if (settings.storage === "cookie")
+            return $.cookie(settings.cookiename);
+        }
+
+        function setStoredTheme(name) {
+          var storage;
+          if (settings.storage === "local")
+            storage = localStorage;
+          else if (settings.storage === "session")
+            storage = sessionStorage;
+          if (storage)
+            storage.setItem(settings.cookiename,
+              JSON.stringify({ name: name }));
+          else if (settings.storage === "cookie")
+            $.cookie(settings.cookiename, name,
+                { expires: settings.cookieexpires, path: settings.cookiepath }
+            );
+        }
+
     	function updateTheme(data){
     		if( settings.onselect !== null )
     			settings.onselect();
@@ -358,9 +390,7 @@
 			style.appendTo("head");
 		}
     		
-    		$.cookie(settings.cookiename, data.name, 
-                { expires: settings.cookieexpires, path: settings.cookiepath }
-            );
+    		setStoredTheme(data.name);
             
     		switcherDiv.find(".jquery-ui-switcher-title").text(settings.buttonpretext + " " + data.title);
     		
