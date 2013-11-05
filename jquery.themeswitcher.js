@@ -19,6 +19,7 @@
 			rounded: true,
 			imgpath: "",
 			themepath: "https://ajax.googleapis.com/ajax/libs/jqueryui/",
+			themecss: "jquery-ui.css",
 			jqueryuiversion: "1.8.10",
 			initialtext: "Switch Theme",
 			buttonpretext: "Theme:",
@@ -343,7 +344,7 @@
 
 		if (!url) {
 		    var urlPrefix = settings.themepath + settings.jqueryuiversion + "/themes/";
-		    url = urlPrefix + data.name + "/jquery-ui.css";
+		    url = urlPrefix + data.name + "/" + settings.themecss;
 		    currentStyle = $('link[href^="' + urlPrefix + '"]').first();
 		}
 
